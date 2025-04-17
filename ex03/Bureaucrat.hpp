@@ -4,12 +4,11 @@
 #include <string>
 #include <iostream>
 
-class Form;
+class AForm;
 
 class Bureaucrat {
   
 	public:
-		Bureaucrat();
 		Bureaucrat(const std::string& name, int grade);
 		Bureaucrat(const Bureaucrat& src);
 		Bureaucrat& operator=(const Bureaucrat& src);
@@ -19,7 +18,8 @@ class Bureaucrat {
 		int					getGrade() const;
 		void				incrementGrade();
 		void				decrementGrade();
-		void				signForm(Form& f) const;
+		void				signForm(AForm& form) const;
+		void				executeForm(const AForm& form) const;
 
 		class GradeTooLowException: public std::exception {
 			public: 
@@ -32,6 +32,7 @@ class Bureaucrat {
 		};
 
 	private:
+		Bureaucrat();
 		const std::string	_name;
 		int					_grade;
 

@@ -2,53 +2,45 @@
 
 int main() {
 
-    std::cout << "\n>------------- Try block 1 -------------<" << std::endl;
+    std::cout << "\n\033[36m>>> Valid Bureaucrat and Decrement / Increment:\033[0m" << std::endl;
     try {
         Bureaucrat bob("Bob", 100);
-        std::cout << bob << std::endl;
+        std::cout << "Before: " << bob << std::endl;
+        bob.decrementGrade();
+        std::cout << "After: " << bob << std::endl;
         
         Bureaucrat sarah("Sarah", 150);
         std::cout << "Before: " << sarah << std::endl;
         sarah.incrementGrade();
-        std::cout << "After: "  << sarah << std::endl;
-
-        Bureaucrat jimbo("Jimbo", 200);
-        std::cout << jimbo << std::endl;
-    }
-    catch (const Bureaucrat::GradeTooLowException& e) {
-        std::cout << e.what() << std::endl;
-    }
-    catch (const Bureaucrat::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
+        std::cout << "After: " << sarah << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << "\033[31m" << e.what() << "\033[0m" << std::endl;
     }
 
-    std::cout << "\n>------------- Try block 2 -------------<" << std::endl;
+    std::cout << "\n\033[36m>>> Invalid Bureaucrat:\033[0m" << std::endl;
     try {
-        Bureaucrat jake("Jake", 149);
-        std::cout << "Before: " << jake << std::endl;
-        jake.decrementGrade();
-        std::cout << "After: "  << jake << std::endl;
-    }
-    catch (const Bureaucrat::GradeTooLowException& e) {
-        std::cout << e.what() << std::endl;
-    }
-    catch (const Bureaucrat::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
+        Bureaucrat jake("Jake", 200);
+        Bureaucrat blake("Blake", 0);
+    } catch (const std::exception& e) {
+        std::cout << "\033[31m" << e.what() << "\033[0m" << std::endl;
     }
 
-    std::cout << "\n>------------- Try block 3 -------------<" << std::endl;
+
+    std::cout << "\n\033[36m>>> Invalid Decrement / Increment:\033[0m" << std::endl;
     try {
         Bureaucrat joy("Joy", 1);
         std::cout << "Before: " << joy << std::endl;
         joy.incrementGrade();
         std::cout << "After: "  << joy << std::endl;
-    }
-    catch (const Bureaucrat::GradeTooLowException& e) {
-        std::cout << e.what() << std::endl;
-    }
-    catch (const Bureaucrat::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
+
+        Bureaucrat ash("Ash", 150);
+        std::cout << "Before: " << ash << std::endl;
+        ash.decrementGrade();
+        std::cout << "After: "  << ash << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << "\033[31m" << e.what() << "\033[0m" << std::endl;
     }
 
     std::cout << "\n";
+    return 0;
 }

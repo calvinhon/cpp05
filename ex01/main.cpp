@@ -1,54 +1,45 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main() {
+    std::cout << "\n\033[36m>>> Valid Bureaucrat and Form:\033[0m" << std::endl;
+    try {
+        Bureaucrat alice("Alice", 50);
+        Form formA("FormA", 75, 100);
+        std::cout << alice << std::endl;
+        std::cout << formA << std::endl;
 
-    std::cout << "\n>------------- Try block 1 -------------<" << std::endl;
+        formA.beSigned(alice);
+    } catch (const std::exception& e) {
+        std::cerr << "\033[1;31m" << e.what() << "\033[0m" << std::endl;
+    }
+
+    std::cout << "\n\033[36m>>> Bureaucrat grade too low to sign:\033[0m" << std::endl;
     try {
         Bureaucrat bob("Bob", 100);
+        Form formB("FormB", 50, 100);
         std::cout << bob << std::endl;
-        
-        Bureaucrat sarah("Sarah", 150);
-        std::cout << "Before: " << sarah << std::endl;
-        sarah.incrementGrade();
-        std::cout << "After: "  << sarah << std::endl;
+        std::cout << formB << std::endl;
 
-        Bureaucrat jimbo("Jimbo", 200);
-        std::cout << jimbo << std::endl;
-    }
-    catch (const Bureaucrat::GradeTooLowException& e) {
-        std::cout << e.what() << std::endl;
-    }
-    catch (const Bureaucrat::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
+        formB.beSigned(bob);
+    } catch (const std::exception& e) {
+        std::cerr << "\033[1;31m" << e.what() << "\033[0m" << std::endl;
     }
 
-    std::cout << "\n>------------- Try block 2 -------------<" << std::endl;
+    std::cout << "\n\033[36m>>> Invalid Form construction:\033[0m" << std::endl;
     try {
-        Bureaucrat jake("Jake", 149);
-        std::cout << "Before: " << jake << std::endl;
-        jake.decrementGrade();
-        std::cout << "After: "  << jake << std::endl;
-    }
-    catch (const Bureaucrat::GradeTooLowException& e) {
-        std::cout << e.what() << std::endl;
-    }
-    catch (const Bureaucrat::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
+        Form formInvalid("InvalidForm", 0, 160);
+    } catch (const std::exception& e) {
+        std::cerr << "\033[1;31m" << e.what() << "\033[0m" << std::endl;
     }
 
-    std::cout << "\n>------------- Try block 3 -------------<" << std::endl;
+    std::cout << "\n\033[36m>>> Invalid Form construction:\033[0m" << std::endl;
     try {
-        Bureaucrat joy("Joy", 1);
-        std::cout << "Before: " << joy << std::endl;
-        joy.incrementGrade();
-        std::cout << "After: "  << joy << std::endl;
-    }
-    catch (const Bureaucrat::GradeTooLowException& e) {
-        std::cout << e.what() << std::endl;
-    }
-    catch (const Bureaucrat::GradeTooHighException& e) {
-        std::cout << e.what() << std::endl;
+        Form formInvalid2("InvalidForm2", 5, 160);
+    } catch (const std::exception& e) {
+        std::cerr << "\033[1;31m" << e.what() << "\033[0m" << std::endl;
     }
 
     std::cout << "\n";
+    return 0;
 }

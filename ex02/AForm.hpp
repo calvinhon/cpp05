@@ -15,6 +15,7 @@ class AForm {
 		const std::string&	getName() const;
 		int					getSignGrade() const;
 		int					getExecGrade() const;
+		int					getSignedStatus() const;
 		void				beSigned(const Bureaucrat& b);
 		void				execute(const Bureaucrat& executor) const;
 

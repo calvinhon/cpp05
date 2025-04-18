@@ -37,6 +37,8 @@ int	AForm::getSignGrade() const { return _reqGradeToSign; }
 
 int	AForm::getExecGrade() const { return _reqGradeToExec; }
 
+int	AForm::getSignedStatus() const { return _signed; }
+
 void	AForm::beSigned(const Bureaucrat& b) {
     if (b.getGrade() <= _reqGradeToSign) {
 		std::cout << b.getName() << " signed " << _name << std::endl;
@@ -72,6 +74,7 @@ const char* AForm::UnsignedException::what() const throw() {
 
 std::ostream& operator<<(std::ostream& os, const AForm& f) {
     os << f.getName() << ", required sign grade " << f.getSignGrade()
-        << ", required execute grade " << f.getExecGrade() << ".";
+        << ", required execute grade " << f.getExecGrade()
+		<< ", signed? " << f.getSignedStatus() << ".";
     return os;
 }

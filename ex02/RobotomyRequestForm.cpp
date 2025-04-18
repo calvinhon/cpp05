@@ -21,6 +21,6 @@ void	RobotomyRequestForm::action() const {
     if (std::rand() % 2 == 0)
         std::cout << _target << " has been robotomized" << std::endl;
     else
-        std::cout << "attempted robotomy on " << _target << " has failed epically" << std::endl;
+        std::cout << "Attempted robotomy on " << _target << " has failed epically" << std::endl;
     std::cout << "\033[0m";
 }

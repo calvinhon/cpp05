@@ -19,10 +19,10 @@ int main() {
         RobotomyRequestForm formR("R2D2");
         Bureaucrat mhat("Mad Hatter", 2);
         Bureaucrat bee = mhat;
-        std::cout << mhat << std::endl;
+        std::cout << bee << std::endl;
         std::cout << formR << std::endl;
         formR.beSigned(alice);
-        formR.execute(mhat);
+        formR.execute(bee);
         std::cout << std::endl;
 
         PresidentialPardonForm formP("Mr. Beeblebrox");

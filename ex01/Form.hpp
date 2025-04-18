@@ -7,7 +7,6 @@
 
 class Form {
     public:
-		Form();
 		Form(const std::string& name, const int signGrade, const int execGrade);
 		Form(const Form& src);
 		Form& operator=(const Form& src);
@@ -16,6 +15,7 @@ class Form {
 		const std::string&	getName() const;
 		int					getSignGrade() const;
 		int					getExecGrade() const;
+		int					getSignedStatus() const;
 		void				beSigned(const Bureaucrat& b);
 
 		class GradeTooLowException: public std::exception {
@@ -28,7 +28,9 @@ class Form {
 		};
 
     private:
-        const std::string	_name;
+		Form();
+        
+		const std::string	_name;
 		const int			_reqGradeToSign;
 		const int			_reqGradeToExec;
         bool                _signed;

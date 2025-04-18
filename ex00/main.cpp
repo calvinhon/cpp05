@@ -25,7 +25,6 @@ int main() {
         std::cout << "\033[31m" << e.what() << "\033[0m" << std::endl;
     }
 
-
     std::cout << "\n\033[36m>>> Invalid Decrement / Increment:\033[0m" << std::endl;
     try {
         Bureaucrat joy("Joy", 1);

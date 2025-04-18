@@ -8,8 +8,8 @@ int main() {
         Form formA("FormA", 75, 100);
         std::cout << alice << std::endl;
         std::cout << formA << std::endl;
-
         formA.beSigned(alice);
+        std::cout << formA << std::endl;
     } catch (const std::exception& e) {
         std::cerr << "\033[1;31m" << e.what() << "\033[0m" << std::endl;
     }
@@ -20,7 +20,6 @@ int main() {
         Form formB("FormB", 50, 100);
         std::cout << bob << std::endl;
         std::cout << formB << std::endl;
-
         formB.beSigned(bob);
     } catch (const std::exception& e) {
         std::cerr << "\033[1;31m" << e.what() << "\033[0m" << std::endl;

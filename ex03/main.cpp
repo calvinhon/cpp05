@@ -34,13 +34,20 @@ int main() {
         std::cout << *ppf << std::endl;
         ppf->beSigned(alice);
         ppf->execute(mhat);
-        std::cout << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "\033[1;31m" << e.what() << "\033[0m" << std::endl;
+    }
 
+    std::cout << "\n\033[36m>>> Invalid Form:" << "\033[0m" << std::endl;
+    try {
+        Intern someRandomIntern;
+        Bureaucrat alice("Alice", 25);
+        
         AForm* randomForm;
         randomForm = someRandomIntern.makeForm("randomForm", "Mr. Beeblebrox");
         std::cout << *randomForm << std::endl;
         randomForm->beSigned(alice);
-        randomForm->execute(mhat);
+        randomForm->execute(alice);
     } catch (const std::exception& e) {
         std::cerr << "\033[1;31m" << e.what() << "\033[0m" << std::endl;
     }

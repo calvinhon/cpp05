@@ -9,6 +9,8 @@ class AForm;
 class Intern {
     public:
         Intern();
+        Intern(const Intern& src);
+        Intern& operator=(const Intern& src);
         ~Intern();
 
         AForm* makeForm(const std::string& name, const std::string& target);
@@ -18,9 +20,14 @@ class Intern {
                 virtual const char* what() const throw();
         };
 
+        class FormOverload: public std::exception {
+            public:
+                virtual const char* what() const throw();
+        };
+
     private:
-        Intern(const Intern& src);
-        Intern& operator=(const Intern& src);
+        AForm*  _createdForms[10];
+        int     _formCount;
 };
 
 #endif

@@ -19,8 +19,9 @@ int main() {
         scf->execute(alice);
         std::cout << std::endl;
 
+        Intern otherRandoIntern(someRandomIntern);
         AForm* rrf;
-        rrf = someRandomIntern.makeForm("RRF", "R2D2");
+        rrf = otherRandoIntern.makeForm("RRF", "R2D2");
         Bureaucrat mhat("Mad Hatter", 2);
         Bureaucrat bee = mhat;
         std::cout << mhat << std::endl;
@@ -30,7 +31,8 @@ int main() {
         std::cout << std::endl;
 
         AForm* ppf;
-        ppf = someRandomIntern.makeForm("PPF", "Mr. Beeblebrox");
+        otherRandoIntern = someRandomIntern;
+        ppf = otherRandoIntern.makeForm("PPF", "Mr. Beeblebrox");
         std::cout << *ppf << std::endl;
         ppf->beSigned(alice);
         ppf->execute(mhat);

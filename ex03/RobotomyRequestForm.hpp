@@ -17,6 +17,7 @@ class RobotomyRequestForm: public AForm {
 		~RobotomyRequestForm();
 
 		void	action() const;
+		AForm*	clone() const;
 
 	private:
 		RobotomyRequestForm();

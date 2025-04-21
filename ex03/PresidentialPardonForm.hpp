@@ -15,6 +15,7 @@ class PresidentialPardonForm: public AForm {
 		~PresidentialPardonForm();
 
 		void	action() const;
+		AForm*	clone() const;
 
 	private:
 		PresidentialPardonForm();

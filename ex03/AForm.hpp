@@ -18,6 +18,7 @@ class AForm {
 		int					getSignedStatus() const;
 		void				beSigned(const Bureaucrat& b);
 		void				execute(const Bureaucrat& executor) const;
+		virtual AForm*		clone() const = 0;
 
 		class GradeTooLowException: public std::exception {
 			virtual const char* what() const throw();
@@ -34,7 +35,7 @@ class AForm {
 		};
 
 	protected:
-		virtual void action() const = 0;
+		virtual void	action() const = 0;
 
     private:
 		AForm();

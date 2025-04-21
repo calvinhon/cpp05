@@ -30,3 +30,7 @@ void	ShrubberyCreationForm::action() const {
         ofs.close();
     }
 }
+
+AForm* ShrubberyCreationForm::clone() const {
+    return new ShrubberyCreationForm(_target);
+}

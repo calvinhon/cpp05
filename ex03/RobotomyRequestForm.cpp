@@ -24,3 +24,7 @@ void	RobotomyRequestForm::action() const {
         std::cout << "attempted robotomy on " << _target << " has failed epically" << std::endl;
     std::cout << "\033[0m";
 }
+
+AForm* RobotomyRequestForm::clone() const {
+    return new RobotomyRequestForm(_target);
+}

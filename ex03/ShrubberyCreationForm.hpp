@@ -15,6 +15,7 @@ class ShrubberyCreationForm: public AForm {
 		~ShrubberyCreationForm();
 
 		void	action() const;
+		AForm*	clone() const;
 
 	private:
 		ShrubberyCreationForm();
